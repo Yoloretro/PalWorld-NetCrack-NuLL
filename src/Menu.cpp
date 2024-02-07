@@ -144,9 +144,9 @@ namespace DX11_Base
             //�л�����һ��
             ImGui::Checkbox("Toggle Speed", &Config.IsSpeedHack);
 
-            ImGui::Checkbox("Toggle Atk Up", &Config.IsAttackModiler);
+            ImGui::Checkbox("Toggle Atk Up", &Config.IsAttackModifier);
 
-            ImGui::Checkbox("Toggle Def Up", &Config.IsDefuseModiler);
+            ImGui::Checkbox("Toggle Def Up", &Config.IsDefenseModifier);
 
             ImGui::Checkbox("Infinite Health", &Config.IsGodMode);
 
@@ -177,9 +177,9 @@ namespace DX11_Base
             //Creadit Mokobake
             //ImGui::Checkbox("MuteKiGodmode", &Config.IsMuteki);
             //             
-            ImGui::SliderFloat("Speed Modifier", &Config.SpeedModiflers, 1, 10);
+            ImGui::SliderFloat("Speed Modifier", &Config.SpeedModifier, 1, 10);
             ImGui::SliderInt("Atk Modifier", &Config.DamageUp, 0, 200000);
-            ImGui::SliderInt("Def Modifier", &Config.DefuseUp, 0, 200000);
+            ImGui::SliderInt("Def Modifier", &Config.DefenseUp, 0, 200000);
             ImGui::Text("Player Position");
             SDK::APalPlayerCharacter* p_appc = Config.GetPalPlayerCharacter();
             if (p_appc != NULL)
@@ -1017,14 +1017,14 @@ namespace DX11_Base
 
         //  
         if (Config.IsSpeedHack)
-            SpeedHack(Config.SpeedModiflers);
+            SpeedHack(Config.SpeedModifier);
         else
         {
             SpeedHack(1.0f); // Turn off the feature
         }
         
         //  
-        if (Config.IsAttackModiler)
+        if (Config.IsAttackModifier)
             SetPlayerAttackParam(Config.DamageUp);
         else
         {
@@ -1032,8 +1032,8 @@ namespace DX11_Base
         }
 
         //  
-        if (Config.IsDefuseModiler)
-            SetPlayerDefenseParam(Config.DefuseUp);
+        if (Config.IsDefenseModifier)
+            SetPlayerDefenseParam(Config.DefenseUp);
         else
         {
             SetPlayerDefenseParam(1.0f); // Turn off the feature

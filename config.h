@@ -17,8 +17,8 @@ public:
 	bool IsFullbright = false;
 	bool IsAimbot = false;
 	bool IsSpeedHack = false;
-	bool IsAttackModiler = false;
-	bool IsDefuseModiler = false;
+	bool IsAttackModifier = false;
+	bool IsDefenseModifier = false;
 	bool IsInfStamina = false;
 	bool IsSafe = true;
 	bool IsInfinAmmo = false;
@@ -39,11 +39,11 @@ public:
 	bool IsGodMode = false;
 	bool bisOpenWaypoints = false;
 	bool IsPartnerSkill = false;
-	float SpeedModiflers = 1.0f;
+	float SpeedModifier = 1.0f;
 	//def and value
 	float mDebugESPDistance = 5.0f;
 	int DamageUp = 0;
-	int DefuseUp = 0;
+	int DefenseUp = 0;
 	int EXP = 0;
 	int Item = 0;
 	float mDebugEntCapDistance = 10.0f;
