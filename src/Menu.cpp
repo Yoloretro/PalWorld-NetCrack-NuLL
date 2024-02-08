@@ -718,7 +718,10 @@ namespace DX11_Base
             ImGui::Checkbox("Player", &Config.filterPlayer);
             ImGui::SameLine();
             ImGui::Checkbox("Pal", &Config.filterPal);
+            ImGui::SameLine();
+            ImGui::Checkbox("Lucky Pal", &Config.filterLuckyPal);
             SDK::TArray<SDK::AActor*> T = Config.GetUWorld()->PersistentLevel->Actors;
+
             for (int i = 0; i < T.Count(); i++)
             {
                 if (!T[i])
@@ -753,6 +756,13 @@ namespace DX11_Base
                 if (Config.filterPal)
                 {
                     if (!Character->StaticCharacterParameterComponent->IsPal)
+                    {
+                        continue;
+                    }
+                }
+                if (Config.filterLuckyPal)
+                {
+                    if (!Character->StaticCharacterParameterComponent->IsRarePal())
                     {
                         continue;
                     }
